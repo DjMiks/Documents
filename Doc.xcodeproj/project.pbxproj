@@ -14,6 +14,10 @@
 		0A98F98A29C0B245003B7FCD /* DocListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A98F98929C0B245003B7FCD /* DocListTableViewController.swift */; };
 		0A98F98C29C0B284003B7FCD /* NewFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A98F98B29C0B284003B7FCD /* NewFolderViewController.swift */; };
 		0A98F98E29C0B2A6003B7FCD /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A98F98D29C0B2A6003B7FCD /* Model.swift */; };
+		0A98F99529C21FBF003B7FCD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A98F99429C21FBF003B7FCD /* LoginViewController.swift */; };
+		0A98F99729C21FE0003B7FCD /* SingInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A98F99629C21FE0003B7FCD /* SingInViewController.swift */; };
+		0A98F99929C22019003B7FCD /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A98F99829C22019003B7FCD /* SettingViewController.swift */; };
+		0A98F9A229C222C7003B7FCD /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0A98F9A129C222C7003B7FCD /* KeychainSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,9 @@
 		0A98F98929C0B245003B7FCD /* DocListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocListTableViewController.swift; sourceTree = "<group>"; };
 		0A98F98B29C0B284003B7FCD /* NewFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFolderViewController.swift; sourceTree = "<group>"; };
 		0A98F98D29C0B2A6003B7FCD /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		0A98F99429C21FBF003B7FCD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0A98F99629C21FE0003B7FCD /* SingInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingInViewController.swift; sourceTree = "<group>"; };
+		0A98F99829C22019003B7FCD /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A98F9A229C222C7003B7FCD /* KeychainSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +74,9 @@
 				0A98F98B29C0B284003B7FCD /* NewFolderViewController.swift */,
 				0A98F98929C0B245003B7FCD /* DocListTableViewController.swift */,
 				0A98F98D29C0B2A6003B7FCD /* Model.swift */,
+				0A98F99629C21FE0003B7FCD /* SingInViewController.swift */,
+				0A98F99429C21FBF003B7FCD /* LoginViewController.swift */,
+				0A98F99829C22019003B7FCD /* SettingViewController.swift */,
 			);
 			path = Doc;
 			sourceTree = "<group>";
@@ -86,6 +97,9 @@
 			dependencies = (
 			);
 			name = Doc;
+			packageProductDependencies = (
+				0A98F9A129C222C7003B7FCD /* KeychainSwift */,
+			);
 			productName = Doc;
 			productReference = 0A98F97229C09889003B7FCD /* Doc.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +128,9 @@
 				Base,
 			);
 			mainGroup = 0A98F96929C09889003B7FCD;
+			packageReferences = (
+				0A98F9A029C222C7003B7FCD /* XCRemoteSwiftPackageReference "keychain-swift" */,
+			);
 			productRefGroup = 0A98F97329C09889003B7FCD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,7 +157,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A98F99729C21FE0003B7FCD /* SingInViewController.swift in Sources */,
+				0A98F99529C21FBF003B7FCD /* LoginViewController.swift in Sources */,
 				0A98F98E29C0B2A6003B7FCD /* Model.swift in Sources */,
+				0A98F99929C22019003B7FCD /* SettingViewController.swift in Sources */,
 				0A98F97629C09889003B7FCD /* AppDelegate.swift in Sources */,
 				0A98F98C29C0B284003B7FCD /* NewFolderViewController.swift in Sources */,
 				0A98F97829C09889003B7FCD /* SceneDelegate.swift in Sources */,
@@ -291,6 +311,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,6 +343,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -360,6 +382,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0A98F9A029C222C7003B7FCD /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0A98F9A129C222C7003B7FCD /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A98F9A029C222C7003B7FCD /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0A98F96A29C09889003B7FCD /* Project object */;
 }
