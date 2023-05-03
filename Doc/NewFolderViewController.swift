@@ -18,7 +18,7 @@ class NextFolderViewController: UITableViewController {
     
     @IBAction func tapNewFolder(_ sender: Any) {
         
-        let alertController = UIAlertController(title: "New folder", message: "", preferredStyle: UIAlertController.Style.alert)
+        let alertController = UIAlertController(title: "Create new folder", message: "", preferredStyle: UIAlertController.Style.alert)
         alertController.addTextField { (textField : UITextField!) -> Void in
             textField.placeholder = "Foder name"
         }
@@ -53,8 +53,11 @@ class NextFolderViewController: UITableViewController {
         
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
+        
         content = FileManagerService().contentsOfDirectory(currentDirectory) ?? []
+        tableView.reloadData()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,9 +66,21 @@ class NextFolderViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newCell", for: indexPath)
+        
+        var sortedContent: [Content] {
+            get {
+                if UserDefaults().bool(forKey: "sort") {
+                    let sorted = content.sorted(by: {$0.name < $1.name})
+                    return sorted
+                } else {
+                    let sorted = content.sorted(by: {$1.name < $0.name})
+                    return sorted
+                }
+            }
+        }
 
-        cell.textLabel?.text = content[indexPath.row].name
-        if content[indexPath.row].contentType == .folder {
+        cell.textLabel?.text = sortedContent[indexPath.row].name
+        if sortedContent[indexPath.row].contentType == .folder {
             cell.accessoryType = .disclosureIndicator
         } else {
             cell.accessoryType = .none
@@ -113,4 +128,5 @@ extension NextFolderViewController: UIImagePickerControllerDelegate ,UINavigatio
         }
     }
 }
+
 

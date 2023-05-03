@@ -13,6 +13,18 @@ class DocListTableViewController: UITableViewController {
         
     var content: [Content] = []
     
+    var sortedContent: [Content] {
+        get {
+            if UserDefaults().bool(forKey: "sort") {
+                let sorted = content.sorted(by: {$0.name < $1.name})
+                return sorted
+            } else {
+                let sorted = content.sorted(by: {$1.name < $0.name})
+                return sorted
+            }
+        }
+    }
+    
     var currentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     
     override func viewDidLoad() {
@@ -22,8 +34,12 @@ class DocListTableViewController: UITableViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     @IBAction func addFolderAction(_ sender: Any) {
-        let alertController = UIAlertController(title: "New folder", message: "", preferredStyle: UIAlertController.Style.alert)
+        let alertController = UIAlertController(title: "Create new folder", message: "", preferredStyle: UIAlertController.Style.alert)
         alertController.addTextField { (textField : UITextField!) -> Void in
             textField.placeholder = "Foder name"
         }
@@ -39,8 +55,6 @@ class DocListTableViewController: UITableViewController {
         
         alertController.addAction(createAction)
         alertController.addAction(cancelAction)
-        
-
         
         self.present(alertController, animated: true, completion: nil)
         
@@ -62,8 +76,8 @@ class DocListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        cell.textLabel?.text = content[indexPath.row].name
-        if content[indexPath.row].contentType == .folder {
+        cell.textLabel?.text = sortedContent[indexPath.row].name
+        if sortedContent[indexPath.row].contentType == .folder {
             cell.accessoryType = .disclosureIndicator
         } else {
             cell.accessoryType = .none
@@ -111,4 +125,3 @@ extension DocListTableViewController: UIImagePickerControllerDelegate ,UINavigat
         }
     }
 }
-
